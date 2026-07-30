@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2026 Jolla Mobile Ltd
  * Copyright (C) 2025 Slava Monich <slava@monich.com>
  *
  * You may use this file under the terms of the BSD license as follows:
@@ -136,7 +137,6 @@ NfcShare::setText(
             if (ndef) {
                 iPrivate->iApp = new NdefApp(ndef->raw.bytes, ndef->raw.size, this);
                 connect(iPrivate->iApp, SIGNAL(readyChanged()), SIGNAL(readyChanged()));
-                connect(iPrivate->iApp, SIGNAL(doneChanged()), SIGNAL(doneChanged()));
                 connect(iPrivate->iApp, SIGNAL(doneChanged()), SIGNAL(doneChanged()));
                 connect(iPrivate->iApp, SIGNAL(bytesTransferredChanged()), SIGNAL(bytesTransferredChanged()));
                 connect(iPrivate->iApp, SIGNAL(done()), SIGNAL(done()));
