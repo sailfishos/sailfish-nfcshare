@@ -10,6 +10,9 @@ Item {
     property var _content: (shareAction && 'resources' in shareAction && shareAction.resources.length > 0) ? shareAction.resources[0] : undefined
     property string _text: ('data' in _content) ? _content.data : ('status' in _content) ? _content.status : ""
 
+    width: parent.width
+    height: 2 * Theme.itemSizeHuge + Theme.paddingSmall // Close enough to the default sharing dialog size
+
     NfcShare {
         id: nfcShare
 
@@ -22,7 +25,7 @@ Item {
             left: parent.left
             right: parent.right
             top: parent.top
-            bottom: progress.top
+            bottom: errorMessage.visible ? errorMessage.top : progress.top
         }
 
         Image {
@@ -57,6 +60,8 @@ Item {
     }
 
     Label {
+        id: errorMessage
+
         x: Theme.horizontalPageMargin
         width: parent.width - 2 * x
         anchors {
