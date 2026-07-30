@@ -26,8 +26,18 @@ Item {
         }
 
         Image {
+            // Older versions of Sailfish OS don't have icon-l-nfc
+            readonly property string _fallbackSource: "image://theme/icon-m-nfc"
+
             anchors.centerIn: parent
             source: "image://theme/icon-l-nfc"
+
+            onStatusChanged: {
+                if (status == Image.Error && source != _fallbackSource) {
+                    source = _fallbackSource
+                    sourceSize = Qt.size(Theme.itemSizeLarge, Theme.itemSizeLarge)
+                }
+            }
         }
     }
 
