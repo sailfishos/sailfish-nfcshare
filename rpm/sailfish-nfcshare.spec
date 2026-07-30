@@ -1,5 +1,5 @@
 Name:       sailfish-nfcshare
-Version:    1.0.0
+Version:    1.0.4
 Release:    1
 License:    BSD
 Summary:    NFC share plugin
