@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2026 Jolla Mobile Ltd
  * Copyright (C) 2025 Slava Monich <slava@monich.com>
  *
  * You may use this file under the terms of the BSD license as follows:
@@ -208,8 +209,7 @@ NdefApp::File::File(
     iBytesRead(aData.size()),
     iLastReadStart(0),
     iLastReadEnd(0)
-{
-}
+{}
 
 NdefApp::File::File() :
     iLastReadStart(0),
@@ -373,7 +373,6 @@ public:
     uint iRegisteredModeId;
     uint iRegisteredTechsId;
     bool iReady;
-    QString iText;
     QDBusConnection iBus;
     bool iRegisteredObject;
 };
